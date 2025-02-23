@@ -89,6 +89,9 @@ La aplicación expone los siguientes endpoints:
     curl --location 'http://localhost:8000/report/hired-by-quarter?year=2021'
     ```
   - `GET /report/departments-above-mean`: Lista los departamentos que superan la media de empleados contratados en un año dado.
+    ```sh
+    curl --location 'http://localhost:8000/report/departments-above-mean?year=2021'
+    ```
 
 ## Variables de Entorno
 
