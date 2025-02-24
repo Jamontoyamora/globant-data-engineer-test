@@ -4,6 +4,7 @@ Controlador que maneja endpoints de reporting.
 """
 
 from fastapi import APIRouter, Query, Depends
+from fastapi.responses import FileResponse
 from typing import List
 from controller.dto.report_dto import HiredByQuarterResponse, DepartmentAboveMeanResponse
 from controller.service.report_service import ReportService
@@ -36,3 +37,14 @@ def departments_above_mean(
     """
     result = service.get_departments_above_mean(year)
     return result
+
+@report_router.get("/generate-report-pdf", response_class=FileResponse)
+def generate_report_pdf(
+    year: int = Query(..., description="Año para filtrar (ej: 2021)"),
+    service: ReportService = Depends(get_report_service)
+):
+    """
+    Genera un PDF con los reportes de contrataciones y gráficos.
+    """
+    pdf_path = service.generate_report_pdf(year)
+    return FileResponse(pdf_path, media_type="application/pdf", filename="report.pdf")

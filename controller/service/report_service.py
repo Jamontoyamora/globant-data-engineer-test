@@ -14,3 +14,7 @@ class ReportService(ABC):
     @abstractmethod
     def get_departments_above_mean(self, year: int) -> List[DepartmentAboveMeanResponse]:
         pass
+
+    @abstractmethod
+    def generate_report_pdf(self, year: int) -> str:
+        pass

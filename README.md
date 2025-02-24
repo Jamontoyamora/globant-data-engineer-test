@@ -92,6 +92,10 @@ La aplicación expone los siguientes endpoints:
     ```sh
     curl --location 'http://localhost:8000/report/departments-above-mean?year=2021'
     ```
+  - `GET /generate-report-pdf`: Genera un PDF con los reportes de contrataciones y gráficos.
+    ```sh
+    curl --location 'http://localhost:8000/report/generate-report-pdf?year=2021' --output report.pdf
+    ```
 
 ## Variables de Entorno
 
