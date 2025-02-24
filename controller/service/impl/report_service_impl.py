@@ -28,8 +28,6 @@ class ReportServiceImpl(ReportService):
             DepartmentAboveMeanResponse(**record) for record in data
         ]
 
-
-
     def generate_report_pdf(self, year: int) -> str:
         hired_by_quarter = self.get_hired_by_quarter(year)
         departments_above_mean = self.get_departments_above_mean(year)
